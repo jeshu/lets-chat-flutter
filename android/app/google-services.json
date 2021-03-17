@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "689688260980",
+    "project_id": "jb-lets-chat",
+    "storage_bucket": "jb-lets-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689688260980:android:8ad88b7821673bdb6dbc21",
+        "android_client_info": {
+          "package_name": "com.jeshubrij.lets_talk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689688260980-1t3tnvp0r6e31t0bs88os0g4af011boh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxgZVkZizq1TdD6uyLsQYMnjMTUwDMR0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689688260980-1t3tnvp0r6e31t0bs88os0g4af011boh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
