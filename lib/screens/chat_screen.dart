@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:lets_talk/components/message.dart';
 import 'package:lets_talk/screens/welcome_screen.dart';
 import '../constants.dart';
@@ -70,10 +71,13 @@ class _ChatScreenState extends State<ChatScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
-              
                 child: Padding(
                     padding: EdgeInsets.all(10),
-                    child: ChatList())),
+                    child: ChatList(
+                      useremail : _user.email,
+                    ),
+                ),
+            ),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
@@ -106,6 +110,9 @@ class _ChatScreenState extends State<ChatScreen> {
 }
 
 class ChatList extends StatelessWidget {
+  ChatList({this.useremail});
+  final String useremail;
+
   @override
   Widget build(BuildContext context) {
     CollectionReference messages =
@@ -125,11 +132,13 @@ class ChatList extends StatelessWidget {
           return Text("Loading");
         }
 
-        return new Column(
-          children: snapshot.data.docs.map((DocumentSnapshot document) {
+        return new ListView(
+          scrollDirection: ScrollDirection.reverse,
+          children: snapshot.data.docs.reversed.map((DocumentSnapshot document) {
             return new Messages(
               message: document.data()['text'],
               sender: document.data()['sender'],
+                isCurrentUser: document.data()['sender'] == useremail,
             );
           }).toList(),
         );
